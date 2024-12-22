@@ -16,7 +16,7 @@ const getNavigationList = async (): Promise<NavigationList[]> => {
 
 const getSlideDataList = async (): Promise<SlideData[]> => {
   try {
-    const response = await axios.get("/api/home/slides-list");
+    const response = await axios.get("/api/home/home-sliders");
     return response.data;
   } catch (error) {
     console.error("Error fetching slide data list:", error);

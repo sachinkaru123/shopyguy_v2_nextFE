@@ -41,114 +41,12 @@ export default async function GroceryTwoPageView() {
   // const bestSellProducts = await api.getBestSellProducts();
   // const discountBanners = await api.getDiscountBannerList();
   const categoryNav = await api3.getNavigationList();
-
-  const categoryNavigations = [
-    {
-      icon: "Carrot",
-      title: "Vegetables",
-      href: "/products/search/vegetables",
-    },
-    {
-      icon: "Apple",
-      title: "Fruits & Vegetables",
-      href: "/products/search/Fruits & Vegetables",
-      child: [
-        {
-          title: "Fresh Frutes",
-          href: "/products/search/Fresh Frutes",
-          child: [
-            {
-              title: "Pears, apples, quinces",
-              href: "/products/search/Pears, apples, quinces",
-            },
-            {
-              title: "Peaches, plums, apricots",
-              href: "/products/search/Peaches, plums, apricots",
-            },
-            { title: "Grapes", href: "/products/search/Grapes" },
-          ],
-        },
-        {
-          title: "Fresh Vegetables",
-          href: "/products/search/Fresh Vegetables",
-          child: [
-            { title: "Onion", href: "/products/search/Onion" },
-            { title: "Potato", href: "/products/search/Potato" },
-            {
-              title: "Vegetable Pack",
-              href: "/products/search/Vegetable Pack",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      icon: "Milk",
-      title: "Dariry & Eggs",
-      href: "/products/search/Dariry & Eggs",
-    },
-    {
-      icon: "Breakfast",
-      title: "Breakfast",
-      href: "/products/search/Breakfast",
-    },
-    { icon: "Yogurt", title: "Frozen", href: "/products/search/Frozen" },
-    { icon: "Honey", title: "Organic", href: "/products/search/Organic" },
-    {
-      icon: "Beer",
-      title: "Canned Food",
-      href: "/products/search/Canned Food",
-    },
-    {
-      icon: "Snack",
-      title: "Coffee & Snacks",
-      href: "/products/search/Coffee & Snacks",
-    },
-    {
-      icon: "Bottle",
-      title: "Sauces & Jems",
-      href: "/products/search/Sauces & Jems",
-    },
-    { icon: "Honey", title: "Organic", href: "/products/search/Organic" },
-    {
-      icon: "Beer",
-      title: "Canned Food",
-      href: "/products/search/Canned Food",
-    },
-    {
-      icon: "Snack",
-      title: "Coffee & Snacks",
-      href: "/products/search/Coffee & Snacks",
-    },
-    {
-      icon: "Bottle",
-      title: "Sauces & Jems",
-      href: "/products/search/Sauces & Jems",
-    },
-  ];
+  const slideList = await api3.getSlideDataList();
 
 
- 
 
-  const mainCarouselData = [
-    {
-      id: 1,
-      title: "Get Your Grocery Within 40 Minutes",
-      imgUrl: "/assets/images/products/garlic.png",
-      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu sed pellentesque nibh tortor.`,
-      playStoreLink: "/",
-      appStoreLink: "/",
-    },
-    {
-      id: 2,
-      title: "Get Your Grocery Within 40 Minutes",
-      imgUrl: "/assets/images/products/garlic.png",
-      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu sed pellentesque nibh tortor.`,
-      playStoreLink: "/",
-      appStoreLink: "/",
-    },
-  ];
 
+  
   // SIDE NAVBAR COMPONENT
   const SideNav = <GrocerySideNav navigation={categoryNav} />;
   // const SideNav = <GrocerySideNav navigation={categoryNavigations} />;
@@ -161,7 +59,7 @@ export default async function GroceryTwoPageView() {
   ]);
   //emvbler
   const SLIDE_COUNT = 5;
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+  // const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
   const OPTIONS: EmblaOptionsType = {};
 
 
@@ -172,7 +70,7 @@ export default async function GroceryTwoPageView() {
         {/* TOP HERO AREA */}
         {/* <Section1 carouselData={mainCarouselData} /> */}
 
-        <HomeCourosel/>
+        <HomeCourosel slides ={slideList}/>
 
         {/* SERVICE LIST AREA */}
         <Section2 services={services} />
