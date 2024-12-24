@@ -43,7 +43,7 @@ export const FavoriteButton = styled(IconButton)(({ theme }) => ({
 
 export const QuickViewButton = styled(Button)({
   left: 0,
-  bottom: 12,
+  bottom: 20,
   opacity: 0,
   borderRadius: 4,
   position: "absolute",

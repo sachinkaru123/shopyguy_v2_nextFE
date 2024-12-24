@@ -17,19 +17,33 @@ import ProductViewDialog from "components/products-view/product-view-dialog";
 // CUSTOM UTILS LIBRARY FUNCTION
 import { currency } from "lib";
 // CUSTOM COMPONENTS
-import { AddToCartButton, Card, CardMedia, FavoriteButton, QuickViewButton } from "./styles";
+import {
+  AddToCartButton,
+  Card,
+  CardMedia,
+  FavoriteButton,
+  QuickViewButton,
+} from "./styles";
 // CUSTOM DATA MODEL
 import Product from "models/Product.model";
+import "./product-card.css";
 
 // ==============================================================
 type Props = { product: Product };
 // ==============================================================
 
 export default function ProductCard8({ product }: Props) {
-  const { slug, id, title, price, thumbnail, images, categories, reviews } = product || {};
+  const { slug, id, title, price, thumbnail, images, categories, reviews, discount } =
+    product || {};
 
-  const { cartItem, handleCartAmountChange, isFavorite, openModal, toggleDialog, toggleFavorite } =
-    useProduct(slug);
+  const {
+    cartItem,
+    handleCartAmountChange,
+    isFavorite,
+    openModal,
+    toggleDialog,
+    toggleFavorite,
+  } = useProduct(slug);
 
   // HANDLE ADD TO CART PRODUCT
   const handleAddToCart = () => {
@@ -39,7 +53,7 @@ export default function ProductCard8({ product }: Props) {
       price,
       name: title,
       imgUrl: thumbnail,
-      qty: (cartItem?.qty || 0) + 1
+      qty: (cartItem?.qty || 0) + 1,
     };
 
     handleCartAmountChange(payload);
@@ -48,6 +62,8 @@ export default function ProductCard8({ product }: Props) {
   return (
     <Card>
       <CardMedia>
+       {discount && <div className="discount-badge">{discount}% OFF</div>}
+
         <Link href={`/products/${slug}`}>
           <LazyImage
             width={300}
@@ -80,7 +96,8 @@ export default function ProductCard8({ product }: Props) {
             color="dark"
             variant="contained"
             className="product-view-action"
-            onClick={toggleDialog}>
+            onClick={toggleDialog}
+          >
             Quick View
           </QuickViewButton>
         </Box>
@@ -95,15 +112,26 @@ export default function ProductCard8({ product }: Props) {
 
       <Box p={1} textAlign="center">
         {/* PRODUCT CATEGORY */}
-        {categories.length > 0 ? <Small color="grey.500">{categories[0]}</Small> : null}
+        {categories.length > 0 ? (
+          <Small color="grey.500">{categories[0]}</Small>
+        ) : null}
 
         {/* PRODUCT TITLE / NAME */}
         <Paragraph fontWeight="bold">{title}</Paragraph>
 
         {/* PRODUCT PRICE  */}
+        <FlexRowCenter>
+        <del>
+          {" "}
+          <H4 fontWeight={700} py={0.5} px={1}>
+            {currency(price)}
+          </H4>
+        </del>
         <H4 fontWeight={700} py={0.5}>
           {currency(price)}
         </H4>
+        </FlexRowCenter>
+       
 
         {/* PRODUCT RATING / REVIEW  */}
         <FlexRowCenter gap={1}>

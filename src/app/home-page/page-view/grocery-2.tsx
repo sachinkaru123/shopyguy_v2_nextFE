@@ -43,9 +43,6 @@ export default async function GroceryTwoPageView() {
   const categoryNav = await api3.getNavigationList();
   const slideList = await api3.getSlideDataList();
 
-
-
-
   
   // SIDE NAVBAR COMPONENT
   const SideNav = <GrocerySideNav navigation={categoryNav} />;

@@ -54,7 +54,7 @@ export const stories = [
 export const products = [
   {
     id: "b66a92a2-56d0-4512-9db6-f24cb97139g1",
-    slug: "banana",
+    slug: "bananas",
     shop: {
       id: "50a7bd5c-8089-416f-b887-9921eebf290e",
       slug: "constant-shoppers",
@@ -84,7 +84,7 @@ export const products = [
       }
     },
     title: "Banana",
-    brand: null,
+    brand: "null",
     price: 146,
     size: null,
     colors: [],
@@ -93,8 +93,8 @@ export const products = [
     images: ["/assets/images/Groceries Shop/15.png", "/assets/images/Groceries Shop/15.png"],
     categories: [],
     status: null,
-    reviews: [],
-    rating: 2
+    reviews: [1],
+    rating: 1
   },
   {
     id: "b66a92a2-56d0-4512-9db6-f24cb97139g2",
@@ -225,7 +225,7 @@ export const products = [
   },
   {
     id: "7e10b5fc-90da-4a78-97f4-05f9a5696cg5",
-    slug: "fresh-purple-onions",
+    slug: "fresh-purple-onions-xx",
     shop: {
       id: "791e3523-7489-4217-bcc0-d3377fc1945c",
       slug: "word-wide-wishes",
